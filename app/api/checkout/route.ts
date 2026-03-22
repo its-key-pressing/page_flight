@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
       metadata: { supabase_user_id: user.id },
     })
 
-    return NextResponse.json({ checkoutUrl: session.url })
+    return NextResponse.json({ checkoutUrl: session.checkout_url })
   } catch (err) {
     console.error('[checkout] Dodo Payments error:', err)
     return NextResponse.json({ error: 'Failed to create checkout session.' }, { status: 500 })
