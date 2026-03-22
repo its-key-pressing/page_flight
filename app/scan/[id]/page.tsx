@@ -5,10 +5,11 @@ import { useRouter } from 'next/navigation'
 import type { ScanStatusResponse } from '@/lib/types'
 
 const CHECKS = [
-  { type: 'adblock', icon: '🛡️', label: 'Adblock filter test',  desc: 'Simulating EasyList cosmetic filters' },
-  { type: 'mobile',  icon: '📱', label: 'Mobile layout',         desc: 'Testing at 375px viewport' },
-  { type: 'form',    icon: '📋', label: 'Form functionality',    desc: 'Filling and submitting forms' },
-  { type: 'seo',     icon: '🔍', label: 'SEO basics',            desc: 'Checking H1, title, description' },
+  { type: 'first_impression', icon: '👁️', label: 'First impression',    desc: 'Capturing above-the-fold screenshots' },
+  { type: 'adblock',          icon: '🛡️', label: 'Adblock filter test',  desc: 'Simulating EasyList cosmetic filters' },
+  { type: 'mobile',           icon: '📱', label: 'Mobile layout',         desc: 'Testing at 375px viewport' },
+  { type: 'form',             icon: '📋', label: 'Form functionality',    desc: 'Filling and submitting forms' },
+  { type: 'seo',              icon: '🔍', label: 'SEO basics',            desc: 'Checking H1, title, description' },
 ]
 
 function CheckRow({ icon, label, desc, status }: {

@@ -7,6 +7,7 @@ import { ShareButton, RescanButton } from './ResultActions'
 export const metadata: Metadata = { title: 'Audit Results — PageFlight' }
 
 const CHECK_LABELS: Record<CheckType, string> = {
+  first_impression: 'First Impression',
   adblock: 'Adblock Filter Test',
   mobile:  'Mobile Layout',
   form:    'Form Functionality',
@@ -14,6 +15,7 @@ const CHECK_LABELS: Record<CheckType, string> = {
 }
 
 const CHECK_ICONS: Record<CheckType, string> = {
+  first_impression: '👁️',
   adblock: '🛡️',
   mobile:  '📱',
   form:    '📋',
@@ -21,6 +23,11 @@ const CHECK_ICONS: Record<CheckType, string> = {
 }
 
 const CHECK_META: Record<CheckType, { severity: string; severityColor: string; impact: string }> = {
+  first_impression: {
+    severity: 'High',
+    severityColor: 'bg-orange-50 text-orange-700',
+    impact: 'Visitors decide in 3 seconds whether to stay or leave. A missing CTA, intrusive overlay, or broken above-the-fold layout kills conversions before they start.',
+  },
   adblock: {
     severity: 'Critical',
     severityColor: 'bg-red-50 text-red-700',
@@ -44,9 +51,10 @@ const CHECK_META: Record<CheckType, { severity: string; severityColor: string; i
 }
 
 const SCREENSHOT_LABELS: Record<string, string> = {
+  desktop:  'Desktop (1280px)',
+  mobile:   'Mobile (375px)',
   clean:    'Normal view',
   filtered: 'With adblock active',
-  mobile:   'Mobile (375px)',
   before:   'Before submit',
   after:    'After submit',
 }
