@@ -2,18 +2,13 @@ import { NextRequest, NextResponse } from 'next/server'
 import DodoPayments from 'dodopayments'
 import { createClient } from '@/lib/supabase/server'
 
-const dodo = new DodoPayments({
-  bearerToken: process.env.DODO_PAYMENTS_API_KEY,
-  environment: (process.env.DODO_ENV ?? 'test_mode') as 'test_mode' | 'live_mode',
-})
+export const dynamic = 'force-dynamic'
 
-/**
- * POST /api/checkout
- *
- * Creates a Dodo Payments checkout session and returns the checkout URL.
- * Body: { variantId: string }  — product_id from Dodo dashboard
- */
 export async function POST(request: NextRequest) {
+  const dodo = new DodoPayments({
+    bearerToken: process.env.DODO_PAYMENTS_API_KEY,
+    environment: (process.env.DODO_ENV ?? 'test_mode') as 'test_mode' | 'live_mode',
+  })
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
