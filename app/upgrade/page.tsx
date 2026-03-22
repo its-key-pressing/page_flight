@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-export const metadata = { title: 'Upgrade — PageFlight' }
 
 const PLANS = [
   {
